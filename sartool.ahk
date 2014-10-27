@@ -2,12 +2,12 @@
 WinGetActiveTitle, currentpath
 Gui, Destroy
 
-Gui, Add, Edit, x12 y60 w430 h20 vOrder,Enter order information here
-Gui, Add, Text, x12 y20 w430 h30 +Center, Enter Signvox order number`, and a brief description. The folders will be created in the last active window. If you want to browse for a specific directory`, click browse.
-Gui, Add, Button, x12 y90 w100 h30 vCreate, Create
-Gui, Add, Button, x122 y90 w100 h30 vCancel, Cancel
-Gui, Add, Button, x342 y90 w100 h30 vBrowse, Browse
-Gui, Show, x633 y443 h138 w460, New Order Folder
+Gui, Add, Edit, x12 y80 w220 h20 limit vOrder, Enter order information here
+Gui, Add, Text, x12 y10 w220 h60 +Center, Enter Signvox order number`, and a brief description. The folders will be created in the last active window. If you want to browse for a specific directory`, click browse.
+Gui, Add, Button, x12 y110 w50 h30 default vCreate, Create
+Gui, Add, Button, x72 y110 w50 h30 vCancel, Cancel
+Gui, Add, Button, x182 y110 w50 h30 vBrowse, Browse
+Gui, Show, x842 y423 h155 w248, New Order Folder
 return
 
 ButtonCancel:
