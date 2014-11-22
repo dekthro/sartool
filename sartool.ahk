@@ -1,5 +1,4 @@
 ^!n::
-
 WinGetActiveTitle, currentpath	; Grab last active window name (for path)
 Gui, Destroy 			; Make sure there is no active GUI
 
@@ -17,12 +16,15 @@ Kill()
   return
 }
 
-Execute(currentpath,order)
+Execute(destination,ordername)
 {
-  orderpath = currentpath\order  
-
   Gui, Submit
-  
+
+  orderpath = %destination%\%ordername%  
+
+  msgbox %orderpath%
+  return
+
   FileCreateDir, %orderpath%
   FileCreateDir, %orderpath%\Working Files
   FileCreateDir, %orderpath%\Working Files\Revisions
@@ -30,22 +32,20 @@ Execute(currentpath,order)
   FileCreateDir, %orderpath%\Proofs\Revisions
   FileCreateDir, %orderpath%\Resources
   FileCreateDir, %orderpath%\Production
+  Return
 }
 
 ButtonCancel:
 Kill()
 
 ButtonBrowse:
-  FileSelectFolder, selectFolder,,2
+  FileSelectFolder, selectedFolder,,2
     if Errorlevel
     return
-  currentpath = %selectfolder%
-  orderpath = %currentpath%\%order%
-  Execute()
+  Execute(selectedFolder,Order)
   Kill()
 
 ButtonCreate:
-  orderpath = %currentpath%\%order%
-  Execute()
+  Execute(currentpath,Order)
   Kill()
 
