@@ -18,12 +18,7 @@ Kill()
 
 Execute(destination,ordername)
 {
-  Gui, Submit
-
   orderpath = %destination%\%ordername%  
-
-  msgbox %orderpath%
-  return
 
   FileCreateDir, %orderpath%
   FileCreateDir, %orderpath%\Working Files
@@ -36,16 +31,18 @@ Execute(destination,ordername)
 }
 
 ButtonCancel:
-Kill()
+  Kill()
 
 ButtonBrowse:
-  FileSelectFolder, selectedFolder,,2
+  FileSelectFolder, currentpath,,2
     if Errorlevel
     return
+  Gui, Submit
   Execute(selectedFolder,Order)
   Kill()
 
 ButtonCreate:
+  Gui, Submit
   Execute(currentpath,Order)
   Kill()
 
