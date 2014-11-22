@@ -37,12 +37,14 @@ ButtonBrowse:
   FileSelectFolder, currentpath,,2
     if Errorlevel
     return
-  Gui, Submit
-  Execute(selectedFolder,Order)
+  Gui, Submit, Nohide
+  order1 := RegExReplace(Order, "[\\/:*?|<>""]", @)
+  Execute(selectedFolder,order1)
   Kill()
 
 ButtonCreate:
-  Gui, Submit
-  Execute(currentpath,Order)
+  Gui, Submit, Nohide
+  order1 := RegExReplace(Order, "[\\/:*?|<>""]", @)
+  Execute(currentpath,order1)
   Kill()
 
