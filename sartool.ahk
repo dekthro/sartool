@@ -18,12 +18,7 @@ Kill()
 
 Execute(destination,ordername)
 {
-  Gui, Submit
-
   orderpath = %destination%\%ordername%  
-
-  msgbox %orderpath%
-  return
 
   FileCreateDir, %orderpath%
   FileCreateDir, %orderpath%\Working Files
@@ -36,16 +31,20 @@ Execute(destination,ordername)
 }
 
 ButtonCancel:
-Kill()
+  Kill()
 
 ButtonBrowse:
-  FileSelectFolder, selectedFolder,,2
+  FileSelectFolder, currentpath,,2
     if Errorlevel
     return
-  Execute(selectedFolder,Order)
+  Gui, Submit, Nohide
+  order1 := RegExReplace(Order, "[\\/:*?|<>""]", @)
+  Execute(selectedFolder,order1)
   Kill()
 
 ButtonCreate:
-  Execute(currentpath,Order)
+  Gui, Submit, Nohide
+  order1 := RegExReplace(Order, "[\\/:*?|<>""]", @)
+  Execute(currentpath,order1)
   Kill()
 
