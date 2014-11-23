@@ -10,12 +10,6 @@ Gui, Add, Button, x182 y110 w50 h30 vBrowse, Browse
 Gui, Show, x842 y423 h155 w248, New Order Folder
 return
 
-Kill()
-{
-  Gui, Destroy
-  return
-}
-
 Execute(destination,ordername)
 {
   orderpath = %destination%\%ordername%  
@@ -31,7 +25,8 @@ Execute(destination,ordername)
 }
 
 ButtonCancel:
-  Kill()
+  Gui, Destroy
+  Return
 
 ButtonBrowse:
   FileSelectFolder, currentpath,,2
@@ -39,12 +34,14 @@ ButtonBrowse:
     return
   Gui, Submit, Nohide
   order1 := RegExReplace(Order, "[\\/:*?|<>""]", @)
-  Execute(selectedFolder,order1)
-  Kill()
+  Execute(currentpath,order1)
+  Gui, Destroy
+  Return
 
 ButtonCreate:
   Gui, Submit, Nohide
   order1 := RegExReplace(Order, "[\\/:*?|<>""]", @)
   Execute(currentpath,order1)
-  Kill()
+  Gui, Destroy
+  Return
 
