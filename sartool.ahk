@@ -5,7 +5,7 @@ Gui, Destroy 			; Make sure there is no active GUI
 Gui, Add, Edit, x62 y90 w50 h20 +Number +Limit +ToolTip vOrder,
 Gui, Add, Text, x113 y92 w20 h20 +Center, -
 Gui, Add, Edit, x132 y90 w260 h20 +ToolTip vDescription, Description
-Gui, Add, Button, x22 y120 w90 h30 vCreate, Create
+Gui, Add, Button, x22 y120 w90 h30 vCreate default, Create
 Gui, Add, Button, x122 y120 w100 h30 vBrowse, Browse
 Gui, Add, Button, x292 y120 w100 h30 vCancel, Cancel
 Gui, Add, Edit, x62 y60 w330 h20 +Left +ToolTip vClient, 
