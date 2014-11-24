@@ -18,12 +18,15 @@ Return
 
 CreateDir(pathtoorder)
 {
+  global Order
+
   FileCreateDir, %pathtoorder%
   FileCreateDir, %pathtoorder%\Working Files
   FileCreateDir, %pathtoorder%\Working Files\Revisions
   FileCreateDir, %pathtoorder%\Proofs
   FileCreateDir, %pathtoorder%\Proofs\Revisions
   FileCreateDir, %pathtoorder%\Resources
+  FileCreateShortCut, https://signaramaredding.sar2.signvoxsar.com/orders/%Order%, %pathtoorder%\Resources\View Order.lnk, , View Order %Order% in SignVox
   FileCreateDir, %pathtoorder%\Production
   Return
 }
