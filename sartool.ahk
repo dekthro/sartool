@@ -37,7 +37,7 @@ Execute(destination,ordernum,orderdesc,clientname)
   }
   else
   {
-    orderpath = W:\Clients\%clientname%\%ordernum% - %orderdesc%  
+    orderpath = \\DROBO-FS\Public\Drobo\Clients\%clientname%\%ordernum% - %orderdesc%  
     CreateDir(orderpath)
   }
   Return
